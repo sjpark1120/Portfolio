@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.hamburger {
+  margin-left: auto;
+}
+
+.text {
+  display: flex;
+  gap: 30px;
+  color: #9baec8;
+  font-size: 20px;
+  margin-left: 50px;
+}
