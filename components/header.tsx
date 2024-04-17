@@ -35,10 +35,12 @@ export default function Header() {
             <a
               href="#main"
               className={
-                currentPath === "#main" ? styles.currentIndex : styles.not
+                currentPath === "#main" || currentPath === ""
+                  ? styles.currentIndex
+                  : styles.not
               }
             >
-              Home
+              {currentPath === "#main" || currentPath === "" ? "/" : ""}Home
             </a>
             <a
               href="#about"
@@ -46,7 +48,7 @@ export default function Header() {
                 currentPath === "#about" ? styles.currentIndex : styles.not
               }
             >
-              AboutMe
+              {currentPath === "#about" ? "/" : ""}AboutMe
             </a>
             <a
               href="#projects"
@@ -54,7 +56,7 @@ export default function Header() {
                 currentPath === "#projects" ? styles.currentIndex : styles.not
               }
             >
-              Projects
+              {currentPath === "#projects" ? "/" : ""}Projects
             </a>
             <a
               href="#contact"
@@ -62,7 +64,7 @@ export default function Header() {
                 currentPath === "#contact" ? styles.currentIndex : styles.not
               }
             >
-              Contact
+              {currentPath === "#contact" ? "/" : ""}Contact
             </a>
           </div>
           <div className={styles.copyright}>
