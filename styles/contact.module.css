@@ -1,0 +1,116 @@
+.container {
+  padding-top: 6vw;
+  padding-left: 70px;
+  padding-right: 70px;
+  background-color: #eeeeee;
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.title {
+  font-family: "stretch-pro";
+  font-size: 3.6458vw;
+  color: #282c37;
+  line-height: 3.6458vw;
+}
+.miniText {
+  font-family: "Pretendard";
+  font-size: 1.25vw;
+  color: #a3a3a3;
+  line-height: 1.25vw;
+  font-weight: 300;
+  margin-left: 11px;
+}
+.bottomLine {
+  border-bottom: 3px solid #282c37;
+  margin-bottom: 75px;
+  display: flex;
+  flex-direction: row-reverse;
+
+  font-family: "Pretendard";
+  font-size: 1.0417vw;
+  color: #6f6f6f;
+  line-height: 1.0417vw;
+  font-weight: 300;
+}
+.contactBox {
+  display: flex;
+  padding-left: 7.2396vw;
+  gap: 15.3125vw;
+}
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.inputText {
+  width: 32.8646vw;
+  height: 2.0833vw;
+  background-color: inherit;
+  border: 1px solid #282c37;
+  border-radius: 0.5208vw;
+  font-size: 1vw;
+  font-family: "Pretendard";
+  font-weight: 300;
+  padding-left: 0.5208vw;
+  padding-right: 0.5208vw;
+  margin-bottom: 0.8333vw;
+}
+.inputTextarea {
+  width: 32.8646vw;
+  height: 15.6771vw;
+  background-color: inherit;
+  border: 1px solid #282c37;
+  border-radius: 0.5208vw;
+  font-size: 1vw;
+  font-family: "Pretendard";
+  font-weight: 300;
+  padding-left: 0.5208vw;
+  padding-right: 0.5208vw;
+  padding-top: 0.4vw;
+  resize: none;
+}
+.submitBtn {
+  background-color: #2b90d9;
+  color: #ffffff;
+  width: 8.9063vw;
+  height: 2.5vw;
+  border-radius: 1.3vw;
+  margin-top: 1vw;
+  font-size: 1.0417vw;
+  font-family: "Pretendard";
+  font-weight: 300;
+}
+.labelText {
+  margin-bottom: 0.2083vw;
+  font-size: 1.0417vw;
+  font-family: "Pretendard";
+  font-weight: 300;
+  color: #6b6b6b;
+}
+.contactLabel {
+  font-size: 1.5vw;
+  font-family: "Pretendard";
+  font-weight: 500;
+  color: #282c37;
+  text-decoration: underline;
+  margin-bottom: 0.5208vw;
+}
+.contactValue {
+  font-size: 1.4vw;
+  font-family: "Pretendard";
+  font-weight: 200;
+  color: #282c37;
+}
+.contactInfoBox {
+  display: flex;
+  gap: 1.875vw;
+  flex-direction: column;
+  padding-top: 1.4583vw;
+}
+.colorLink {
+  color: #282c37;
+}
