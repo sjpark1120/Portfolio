@@ -1,0 +1,26 @@
+.title {
+  font-family: "Pretendard";
+  font-size: 2.0833vw;
+  font-weight: 500;
+  color: #282c37;
+  margin-top: 1.25vw;
+}
+.descriptionText {
+  font-family: "Pretendard";
+  font-size: 1.0417vw;
+  font-weight: 300;
+  color: #6f6f6f;
+}
+.skill {
+  font-family: "Pretendard";
+  font-size: 1.0417vw;
+  font-weight: 300;
+  color: #2b90d9;
+  margin-top: 1.0417vw;
+}
+.img {
+  width: 38.0625vw;
+  height: 25vw;
+  object-fit: cover;
+  border-radius: 0.7vw;
+}
