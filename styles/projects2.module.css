@@ -11,7 +11,7 @@
   justify-content: space-between;
 }
 .bottomLine {
-  border-bottom: 3px solid #282c37;
+  border-bottom: 2px solid #282c37;
   margin-bottom: 75px;
   display: flex;
   flex-direction: row-reverse;

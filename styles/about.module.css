@@ -2,7 +2,7 @@
   padding-top: 6vw;
   padding-left: 70px;
   padding-right: 70px;
-  background-color: #eeeeee;
+  background-color: #282c37;
   height: 100vh;
   width: 100%;
 
@@ -13,7 +13,7 @@
 .title {
   font-family: "stretch-pro";
   font-size: 3.6458vw;
-  color: #282c37;
+  color: #eeeeee;
   line-height: 3.6458vw;
 }
 .miniText {
@@ -47,14 +47,13 @@
   height: 12.7083vw;
   font-family: "Pretendard";
   font-size: 1.6667vw;
-  color: #282c37;
-  line-height: 1.6667vw;
+  color: #eeeeee;
   font-weight: 300;
 
   margin-top: 1.7188vw;
 }
 .bottomLine {
-  border-bottom: 3px solid #282c37;
+  border-bottom: 2px solid #eeeeee;
   margin-bottom: 75px;
   display: flex;
   flex-direction: row-reverse;

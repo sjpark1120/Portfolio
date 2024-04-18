@@ -13,6 +13,11 @@
   margin-left: auto;
   width: 50px;
 }
+.hamburgerReversal {
+  margin-left: auto;
+  width: 50px;
+  filter: invert(100%);
+}
 
 .text {
   display: flex;
@@ -23,7 +28,6 @@
   font-weight: 200;
   margin-left: 50px;
 }
-
 .sideMenu {
   position: fixed;
   right: 0;
@@ -31,14 +35,52 @@
   height: 100%;
   width: 28.6458vw;
   background-color: #282c37;
-  /* border-radius: 20px 0 0 20px; */
+  border-radius: 20px 0 0 20px;
   padding: 3.0208vw 0 4.4792vw 2.8646vw;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%); /* 시작 지점 설정 */
+    opacity: 0; /* 시작 시 투명도 설정 */
+  }
+  100% {
+    transform: translateX(0%); /* 종료 지점 설정 */
+    opacity: 1; /* 종료 시 투명도 설정 */
+  }
+}
 
+@keyframes slideOut {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.sideMenuReversal {
+  position: fixed;
+  right: 0;
+  z-index: 20;
+  height: 100%;
+  width: 28.6458vw;
+  background-color: #eeeeee;
+  border-radius: 20px 0 0 20px;
+  padding: 3.0208vw 0 4.4792vw 2.8646vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.active {
+  animation: slideIn 0.5s both;
+}
+.inactive {
+  animation: slideOut 0.5s both;
+}
 .index {
   margin-top: 5.3646vw;
   display: flex;
@@ -48,11 +90,29 @@
   font-family: "stretch-pro";
   font-size: 2.3958vw;
 }
+.active .index a:nth-child(1) {
+  animation: slideIn 0.9s both;
+}
+.active .index a:nth-child(2) {
+  animation: slideIn 0.9s both;
+  animation-delay: 0.2s;
+}
+.active .index a:nth-child(3) {
+  animation: slideIn 0.9s both;
+  animation-delay: 0.4s;
+}
+.active .index a:nth-child(4) {
+  animation: slideIn 0.9s both;
+  animation-delay: 0.6s;
+}
 .currentIndex {
   color: #2b90d9;
 }
 .not {
   color: #eeeeee;
+}
+.sideMenuReversal .not {
+  color: #282c37;
 }
 .copyright {
   margin-top: auto;
@@ -61,4 +121,10 @@
   font-size: 1.0417vw;
   font-weight: 200;
   width: 13.1771vw;
+}
+.sideMenuReversal .copyright {
+  color: #282c37;
+}
+.sideMenuReversal img[src="assets/xbtn.png"] {
+  filter: invert(100%);
 }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Main from "../../components/main";
 import styles from "../../styles/home.module.css";
 import About from "../../components/about";

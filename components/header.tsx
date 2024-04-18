@@ -1,14 +1,10 @@
 "use client";
-import Link from "next/link";
 import styles from "../styles/header.module.css";
-import { useEffect, useState } from "react";
-import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 export default function Header() {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-  const pathname = usePathname();
-  const params = useParams();
-  const searchParams = useSearchParams();
   const [currentPath, setCurrentPath] = useState(""); // 현재 경로를 저장할 상태
+  const sideMenuRef = useRef(null);
 
   useEffect(() => {
     setCurrentPath(window.location.hash);
@@ -22,56 +18,77 @@ export default function Header() {
       window.removeEventListener("hashchange", handleHashChange);
     };
   }, [currentPath]);
+
+  function handleOutsideClick(event) {
+    if (isSideMenuOpen && !sideMenuRef.current.contains(event.target)) {
+      setIsSideMenuOpen(false);
+    }
+  }
+  // 사이드 메뉴가 열릴 때마다 document에 클릭 이벤트 리스너 추가
+  useEffect(() => {
+    if (isSideMenuOpen) {
+      document.addEventListener("click", handleOutsideClick);
+    } else {
+      document.removeEventListener("click", handleOutsideClick);
+    }
+    // 컴포넌트가 언마운트될 때 클릭 이벤트 리스너 제거
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [isSideMenuOpen]);
   return (
     <>
-      {isSideMenuOpen && (
-        <div className={styles.sideMenu}>
-          <img
-            src="assets/xbtn.png"
-            onClick={() => setIsSideMenuOpen(false)}
-            style={{ cursor: "pointer" }}
-          />
-          <div className={styles.index}>
-            <a
-              href="#main"
-              className={
-                currentPath === "#main" || currentPath === ""
-                  ? styles.currentIndex
-                  : styles.not
-              }
-            >
-              {currentPath === "#main" || currentPath === "" ? "/" : ""}Home
-            </a>
-            <a
-              href="#about"
-              className={
-                currentPath === "#about" ? styles.currentIndex : styles.not
-              }
-            >
-              {currentPath === "#about" ? "/" : ""}AboutMe
-            </a>
-            <a
-              href="#projects"
-              className={
-                currentPath === "#projects" ? styles.currentIndex : styles.not
-              }
-            >
-              {currentPath === "#projects" ? "/" : ""}Projects
-            </a>
-            <a
-              href="#contact"
-              className={
-                currentPath === "#contact" ? styles.currentIndex : styles.not
-              }
-            >
-              {currentPath === "#contact" ? "/" : ""}Contact
-            </a>
-          </div>
-          <div className={styles.copyright}>
-            © 2024 SUJIN’S PORTPOLIO ALL RIGHTS RESERVED.
-          </div>
+      <div
+        className={`${currentPath === "#about" || currentPath === "#contact" ? styles.sideMenuReversal : styles.sideMenu} 
+          ${isSideMenuOpen ? styles.active : styles.inactive}`}
+        onClick={handleOutsideClick}
+        ref={sideMenuRef}
+      >
+        <img
+          src="assets/xbtn.png"
+          onClick={() => setIsSideMenuOpen(false)}
+          style={{ cursor: "pointer" }}
+        />
+        <div className={styles.index}>
+          <a
+            href="#main"
+            className={
+              currentPath === "#main" || currentPath === ""
+                ? styles.currentIndex
+                : styles.not
+            }
+          >
+            {currentPath === "#main" || currentPath === "" ? "/" : ""}Home
+          </a>
+          <a
+            href="#about"
+            className={
+              currentPath === "#about" ? styles.currentIndex : styles.not
+            }
+          >
+            {currentPath === "#about" ? "/" : ""}AboutMe
+          </a>
+          <a
+            href="#projects"
+            className={
+              currentPath === "#projects" ? styles.currentIndex : styles.not
+            }
+          >
+            {currentPath === "#projects" ? "/" : ""}Projects
+          </a>
+          <a
+            href="#contact"
+            className={
+              currentPath === "#contact" ? styles.currentIndex : styles.not
+            }
+          >
+            {currentPath === "#contact" ? "/" : ""}Contact
+          </a>
         </div>
-      )}
+        <div className={styles.copyright}>
+          © 2024 SUJIN’S PORTPOLIO ALL RIGHTS RESERVED.
+        </div>
+      </div>
       <div className={styles.header}>
         <img src="assets/logo.png" alt="logo" height={50} />
         <span className={styles.text}>
@@ -82,7 +99,11 @@ export default function Header() {
         <img
           src="assets/hamburger.png"
           alt="hamburger button"
-          className={styles.hamburger}
+          className={
+            currentPath === "#about" || currentPath === "#contact"
+              ? styles.hamburgerReversal
+              : styles.hamburger
+          }
           onClick={() => {
             setIsSideMenuOpen(true);
           }}
