@@ -1,11 +1,12 @@
 "use client";
 import styles from "../styles/header.module.css";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 export default function Header() {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(""); // 현재 경로를 저장할 상태
   const sideMenuRef = useRef(null);
-
+  const router = useRouter();
   useEffect(() => {
     setCurrentPath(window.location.hash);
     const handleHashChange = () => {
@@ -45,13 +46,18 @@ export default function Header() {
         ref={sideMenuRef}
       >
         <img
-          src="assets/xbtn.png"
+          src="/assets/xbtn.png"
           onClick={() => setIsSideMenuOpen(false)}
+          className={
+            currentPath === "#about" || currentPath === "#contact"
+              ? styles.xReversal
+              : ""
+          }
           style={{ cursor: "pointer" }}
         />
         <div className={styles.index}>
           <a
-            href="#main"
+            href="/#main"
             className={
               currentPath === "#main" || currentPath === ""
                 ? styles.currentIndex
@@ -61,7 +67,7 @@ export default function Header() {
             {currentPath === "#main" || currentPath === "" ? "/" : ""}Home
           </a>
           <a
-            href="#about"
+            href="/#about"
             className={
               currentPath === "#about" ? styles.currentIndex : styles.not
             }
@@ -69,7 +75,7 @@ export default function Header() {
             {currentPath === "#about" ? "/" : ""}AboutMe
           </a>
           <a
-            href="#projects"
+            href="/#projects"
             className={
               currentPath === "#projects" ? styles.currentIndex : styles.not
             }
@@ -77,7 +83,7 @@ export default function Header() {
             {currentPath === "#projects" ? "/" : ""}Projects
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className={
               currentPath === "#contact" ? styles.currentIndex : styles.not
             }
@@ -90,24 +96,31 @@ export default function Header() {
         </div>
       </div>
       <div className={styles.header}>
-        <img src="assets/logo.png" alt="logo" height={50} />
+        <img
+          src="/assets/logo.png"
+          alt="logo"
+          height={50}
+          onClick={() => router.push(`/`)}
+          style={{ cursor: "pointer" }}
+        />
         <span className={styles.text}>
           <span>010-9507-9609</span>
           <span>/</span>
           <span>asgol9609@gmail.com</span>
         </span>
         <img
-          src="assets/hamburger.png"
+          src="/assets/hamburger.png"
           alt="hamburger button"
-          className={
-            currentPath === "#about" || currentPath === "#contact"
-              ? styles.hamburgerReversal
-              : styles.hamburger
-          }
+          className={`
+          ${styles.hamburger}
+            ${
+              currentPath === "#about" || currentPath === "#contact"
+                ? styles.hamW
+                : styles.hamB
+            }`}
           onClick={() => {
             setIsSideMenuOpen(true);
           }}
-          style={{ cursor: "pointer" }}
         />
       </div>
     </>

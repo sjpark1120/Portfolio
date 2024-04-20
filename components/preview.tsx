@@ -1,8 +1,10 @@
 import styles from "../styles/preview.module.css";
+import Link from "next/link";
+
 export default function Preview({ project }) {
-  const { title, description, skills, image } = project;
+  const { title, description, skills, image, id } = project;
   return (
-    <div>
+    <Link href={`/project/${id}`}>
       <img src={image} className={styles.img} alt={title} />
       <div>
         <div className={styles.title}>{title}</div>
@@ -15,6 +17,6 @@ export default function Preview({ project }) {
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

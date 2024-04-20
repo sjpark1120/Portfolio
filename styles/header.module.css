@@ -8,14 +8,32 @@
   padding-left: 70px;
   padding-right: 70px;
 }
-
+@keyframes invertAnimation {
+  to {
+    filter: invert(100%);
+  }
+}
+@keyframes invertAnimation2 {
+  from {
+    filter: invert(100%);
+  }
+  to {
+    filter: invert(0%);
+  }
+}
 .hamburger {
   margin-left: auto;
   width: 50px;
+  cursor: pointer;
 }
-.hamburgerReversal {
-  margin-left: auto;
-  width: 50px;
+.hamW {
+  animation: invertAnimation 2s forwards;
+}
+.hamB {
+  animation: invertAnimation2 2s forwards;
+}
+
+.xReversal {
   filter: invert(100%);
 }
 
@@ -41,6 +59,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  transform: translateX(100%);
 }
 @keyframes slideIn {
   0% {
@@ -54,9 +73,6 @@
 }
 
 @keyframes slideOut {
-  from {
-    transform: translateX(0%);
-  }
   to {
     transform: translateX(100%);
   }
@@ -79,7 +95,7 @@
   animation: slideIn 0.5s both;
 }
 .inactive {
-  animation: slideOut 0.5s both;
+  animation: slideOut 0.5s forwards;
 }
 .index {
   margin-top: 5.3646vw;
