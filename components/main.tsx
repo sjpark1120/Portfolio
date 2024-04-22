@@ -11,10 +11,6 @@ export default function Main() {
         <div className={styles.miniText}>THIS IS MY PORTPOLIO</div>
         <div className={styles.bottom}>
           <span className={styles.frontendText}>/FRONT END DEVELOPER</span>
-          <div>
-            <img src="/assets/home.png" style={{ marginRight: "20px" }} />
-            <img src="/assets/github.png" />
-          </div>
         </div>
       </div>
     </div>

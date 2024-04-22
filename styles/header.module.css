@@ -73,6 +73,9 @@
 }
 
 @keyframes slideOut {
+  from {
+    transform: translateX(0%);
+  }
   to {
     transform: translateX(100%);
   }
@@ -143,4 +146,14 @@
 }
 .sideMenuReversal img[src="assets/xbtn.png"] {
   filter: invert(100%);
+}
+.dimmed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.4;
+  z-index: 15;
 }

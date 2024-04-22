@@ -39,6 +39,7 @@ export default function Header() {
   }, [isSideMenuOpen]);
   return (
     <>
+      <div className={isSideMenuOpen ? styles.dimmed : ""}></div>
       <div
         className={`${currentPath === "#about" || currentPath === "#contact" ? styles.sideMenuReversal : styles.sideMenu} 
           ${isSideMenuOpen ? styles.active : styles.inactive}`}
