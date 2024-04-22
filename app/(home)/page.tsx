@@ -8,7 +8,7 @@ import Projects from "../../components/projects";
 import Contact from "../../components/contact";
 import Projects2 from "../../components/projects2";
 
-async function Home() {
+function Home() {
   const [initialActiveSection, setInitialActiveSection] = useState(null);
   const onScroll = (p) => {
     if (initialActiveSection === null) setInitialActiveSection(p.activeSection);
