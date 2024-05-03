@@ -73,9 +73,7 @@ export default function Header() {
           <a
             href="/#projects"
             className={
-              currentPath === "#projects" || "#projects2"
-                ? styles.currentIndex
-                : styles.not
+              currentPath === "#projects" ? styles.currentIndex : styles.not
             }
           >
             {currentPath === "#projects" ? "/" : ""}Projects
@@ -97,7 +95,7 @@ export default function Header() {
         <img
           src="/assets/logo.png"
           alt="logo"
-          height={50}
+          height={40}
           onClick={() => router.push(`/`)}
           style={{ cursor: "pointer" }}
         />

@@ -1,5 +1,5 @@
 .container {
-  padding-top: 13.7vw;
+  padding-top: 4.7vw;
   padding-left: 70px;
   padding-right: 70px;
   background-color: #eeeeee;
@@ -11,31 +11,9 @@
   justify-content: space-between;
 }
 
-.mainText1 {
-  font-family: "stretch-pro";
-  font-size: 3.65vw;
-  color: #282c37;
-  line-height: 3.65vw;
-  margin-bottom: -1.5vw;
-  margin-left: 9px;
-}
-.mainText2 {
-  font-family: "stretch-pro";
-  font-size: 10.42vw;
-  color: #282c37;
-  line-height: 10.42vw;
-}
-
-.miniText {
-  font-family: "Pretendard";
-  font-size: 20px;
-  font-weight: 300;
-  color: #a3a3a3;
-}
-
 .frontendText {
   font-family: "Pretendard";
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 200;
   color: #282c37;
 }
@@ -45,5 +23,54 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid #282c37;
-  margin-bottom: 75px;
+  margin-bottom: 30px;
+}
+.circle {
+  background: linear-gradient(
+    180deg,
+    #eeeeee 10%,
+    #e2e8ed 30%,
+    #cbddea 40%,
+    #a8cce6 60%,
+    #2b90d9 100%
+  );
+
+  width: 67.0833vw;
+  height: 22.3438vw;
+  border-radius: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.topText {
+  font-family: "Pretendard";
+  font-weight: 300;
+  font-size: 1.25vw;
+  color: #282c37;
+  border: #282c37 1px solid;
+  border-radius: 5.2083vw;
+  line-height: 2.3438vw;
+  width: 8.5417vw;
+  padding-left: 0.9375vw;
+  padding-right: 0.9375vw;
+}
+.titleText {
+  font-family: "stretch-pro";
+  font-size: 5.6667vw;
+  line-height: 6vw;
+  color: #282c37;
+}
+.introText {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-size: 1.25vw;
+  width: 34.2188vw;
+  text-align: center;
+}
+.miniText {
+  font-family: "Pretendard";
+  font-weight: 300;
+  color: #808080;
 }

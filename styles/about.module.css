@@ -1,5 +1,5 @@
 .container {
-  padding-top: 115px;
+  padding-top: 100px;
   padding-left: 70px;
   padding-right: 70px;
   background-color: #eeeeee;
@@ -12,7 +12,7 @@
 }
 .title {
   font-family: "stretch-pro";
-  font-size: 3.6458vw;
+  font-size: 50px;
   color: #282c37;
   line-height: 3.6458vw;
 }
@@ -46,7 +46,7 @@
   width: 40.4583vw;
   height: 12.7083vw;
   font-family: "Pretendard";
-  font-size: 1.6667vw;
+  font-size: 16px;
   color: #282c37;
   font-weight: 300;
 
@@ -54,7 +54,7 @@
 }
 .bottomLine {
   border-bottom: 2px solid #282c37;
-  margin-bottom: 75px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: row-reverse;
 
@@ -83,6 +83,9 @@
   line-height: 2.3438vw;
   z-index: 1;
   transition: 0.5s;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 300;
 }
 .notClickedBtn {
   width: 13.6458vw;
@@ -91,12 +94,113 @@
   text-align: center;
   line-height: 2.3438vw;
   z-index: 1;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 300;
 }
 .tabIndicator {
   position: absolute;
   height: 2.3438vw;
   width: 13.6458vw;
   border-radius: 2.0313vw;
-  background-color: #2b90d9;
+  background-color: #282c37;
   transition: left 0.3s ease;
+}
+.linkText {
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 300;
+  color: #282c37;
+}
+.linkContainer {
+  padding: 20px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.link {
+  width: 50%;
+  margin-bottom: 18px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+.expListContainer {
+  width: 41.9792vw;
+}
+.expList {
+  display: flex;
+  align-items: center;
+  border-bottom: #d9d9d9 1px solid;
+  height: 5.9375vw;
+}
+.expList:nth-last-child(1) {
+  border: none;
+}
+.expTime {
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 300;
+  color: #686868;
+  padding-left: 24px;
+  width: 179px;
+}
+.expName {
+  font-family: "Pretendard";
+  font-size: 20px;
+  font-weight: 400;
+  color: #282c37;
+  width: 132px;
+}
+.expNameCategory {
+  font-family: "Pretendard";
+  font-size: 12px;
+  font-weight: 300;
+  color: #686868;
+}
+.expInfo {
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 300;
+  color: #686868;
+}
+.skillH1 {
+  font-family: "Pretendard";
+  font-size: 24px;
+  font-weight: 500;
+  color: #282c37;
+  margin-bottom: 16px;
+}
+.skillListContainer {
+  display: flex;
+  height: 412px;
+  width: 41.9792vw;
+  padding-top: 38px;
+}
+.skillList {
+  width: 379px;
+  border-right: #d9d9d9 1px solid;
+  padding-left: 24px;
+}
+.skillList:nth-last-child(1) {
+  border: none;
+}
+.skillname {
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 300;
+  color: #282c37;
+}
+.skillbox {
+  display: flex;
+  margin-left: 7px;
+  align-items: center;
+  gap: 6px;
+}
+.skillFlex {
+  display: flex;
+  row-gap: 20px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 17.3438vw;
 }
