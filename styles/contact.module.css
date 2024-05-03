@@ -2,7 +2,7 @@
   padding-top: 115px;
   padding-left: 70px;
   padding-right: 70px;
-  background-color: #282c37;
+  background-color: #eeeeee;
   height: 100vh;
   width: 100%;
 
@@ -13,7 +13,7 @@
 .title {
   font-family: "stretch-pro";
   font-size: 3.6458vw;
-  color: #eeeeee;
+  color: #282c37;
   line-height: 3.6458vw;
 }
 .miniText {
@@ -25,7 +25,7 @@
   margin-left: 11px;
 }
 .bottomLine {
-  border-bottom: 2px solid #eeeeee;
+  border-bottom: 2px solid #282c37;
   margin-bottom: 75px;
   display: flex;
   flex-direction: row-reverse;
@@ -50,7 +50,7 @@
   width: 32.8646vw;
   height: 2.0833vw;
   background-color: inherit;
-  border: 1px solid #eeeeee;
+  border: 1px solid #282c37;
   border-radius: 0.5208vw;
   font-size: 1vw;
   font-family: "Pretendard";
@@ -58,13 +58,13 @@
   padding-left: 0.5208vw;
   padding-right: 0.5208vw;
   margin-bottom: 0.8333vw;
-  color: #eeeeee;
+  color: #282c37;
 }
 .inputTextarea {
   width: 32.8646vw;
   height: 15.6771vw;
   background-color: inherit;
-  border: 1px solid #eeeeee;
+  border: 1px solid #282c37;
   border-radius: 0.5208vw;
   font-size: 1vw;
   font-family: "Pretendard";
@@ -77,7 +77,7 @@
 }
 .submitBtn {
   background-color: #2b90d9;
-  color: #282c37;
+  color: #eeeeee;
   width: 8.9063vw;
   height: 2.5vw;
   border-radius: 1.3vw;
@@ -97,7 +97,7 @@
   font-size: 1.5vw;
   font-family: "Pretendard";
   font-weight: 500;
-  color: #eeeeee;
+  color: #282c37;
   text-decoration: underline;
   margin-bottom: 0.5208vw;
 }
@@ -105,7 +105,7 @@
   font-size: 1.4vw;
   font-family: "Pretendard";
   font-weight: 200;
-  color: #eeeeee;
+  color: #282c37;
 }
 .contactInfoBox {
   display: flex;
@@ -114,5 +114,5 @@
   padding-top: 1.4583vw;
 }
 .colorLink {
-  color: #eeeeee;
+  color: #282c37;
 }

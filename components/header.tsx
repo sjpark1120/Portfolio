@@ -8,9 +8,9 @@ export default function Header() {
   const sideMenuRef = useRef(null);
   const router = useRouter();
   useEffect(() => {
-    setCurrentPath(window.location.hash);
     const handleHashChange = () => {
       setCurrentPath(window.location.hash);
+      console.log(window.location.hash);
     };
     // 페이지가 로드될 때와 해시가 변경될 때 이벤트를 등록
     window.addEventListener("hashchange", handleHashChange);
@@ -41,7 +41,7 @@ export default function Header() {
     <>
       <div className={isSideMenuOpen ? styles.dimmed : ""}></div>
       <div
-        className={`${currentPath === "#about" || currentPath === "#contact" ? styles.sideMenuReversal : styles.sideMenu} 
+        className={`${styles.sideMenu}
           ${isSideMenuOpen ? styles.active : styles.inactive}`}
         onClick={handleOutsideClick}
         ref={sideMenuRef}
@@ -49,11 +49,6 @@ export default function Header() {
         <img
           src="/assets/xbtn.png"
           onClick={() => setIsSideMenuOpen(false)}
-          className={
-            currentPath === "#about" || currentPath === "#contact"
-              ? styles.xReversal
-              : ""
-          }
           style={{ cursor: "pointer" }}
         />
         <div className={styles.index}>
@@ -78,7 +73,9 @@ export default function Header() {
           <a
             href="/#projects"
             className={
-              currentPath === "#projects" ? styles.currentIndex : styles.not
+              currentPath === "#projects" || "#projects2"
+                ? styles.currentIndex
+                : styles.not
             }
           >
             {currentPath === "#projects" ? "/" : ""}Projects
@@ -114,11 +111,7 @@ export default function Header() {
           alt="hamburger button"
           className={`
           ${styles.hamburger}
-            ${
-              currentPath === "#about" || currentPath === "#contact"
-                ? styles.hamW
-                : styles.hamB
-            }`}
+            ${styles.hamB}`}
           onClick={() => {
             setIsSideMenuOpen(true);
           }}

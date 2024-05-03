@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Main from "../../components/main";
 import styles from "../../styles/home.module.css";
 import About from "../../components/about";
@@ -16,7 +16,7 @@ function Home() {
   let options = {
     scrollCallback: onScroll,
     sectionClassName: "section",
-    anchors: ["main", "about", "projects", "projects", "contact"],
+    anchors: ["main", "about", "projects", "projects2", "contact"],
     scrollBar: false,
     navigation: false,
     verticalAlign: false,
