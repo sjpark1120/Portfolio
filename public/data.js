@@ -1,6 +1,7 @@
 const projectslist = [
   {
     id: 1,
+    type: "team",
     title: "GROW UP",
     description: "화면이나 캠을 공유하며 다른 사람과 함께 공부할 수 있는 웹 사이트입니다.",
     skills: ["React", "Styled-components", "Redux"],
@@ -14,6 +15,7 @@ const projectslist = [
   },
   {
     id: 2,
+    type: "solo",
     title: "TNOVEL",
     description: "여행 기록을 공유하는 SNS 웹 사이트 입니다.",
     skills: ["React", "Typescript", "Styled-components", "Recoil"],
@@ -27,6 +29,7 @@ const projectslist = [
   },
   {
     id: 3,
+    type: "solo",
     title: "PORTPOLIO SITE",
     description: "현재 보고있는 포트폴리오 사이트입니다.",
     skills: ["NEXTJS", "TYPESCRIPT", "CSS-MODULE"],
@@ -40,6 +43,7 @@ const projectslist = [
   },
   {
     id: 4,
+    type: "solo",
     title: "WeatherWear",
     description: "실시간 날씨에 맞춰 옷차림을 추천하는 사이트입니다.",
     skills: ["HTML", "CSS", "JAVASCRIPT", "NODEJS"],

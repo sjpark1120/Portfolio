@@ -1,5 +1,5 @@
 .container {
-  padding-top: 115px;
+  padding-top: 100px;
   padding-left: 70px;
   padding-right: 70px;
   background-color: #eeeeee;
@@ -8,11 +8,11 @@
 
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-between;
 }
 .title {
   font-family: "stretch-pro";
-  font-size: 3.6458vw;
+  font-size: 50px;
   color: #282c37;
   line-height: 3.6458vw;
 }
@@ -26,7 +26,7 @@
 }
 .bottomLine {
   border-bottom: 2px solid #282c37;
-  margin-bottom: 75px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: row-reverse;
 
@@ -38,7 +38,52 @@
 }
 .projectBox {
   display: flex;
-  gap: 6.875vw;
-  margin-top: 2.3958vw;
-  justify-content: center;
+  gap: 1.6667vw;
+  overflow: hidden;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.categryContainer {
+  display: flex;
+  gap: 0.5208vw;
+}
+.categoryBtn {
+  font-family: "Pretendard";
+  font-size: 16px;
+  color: #282c37;
+  line-height: 36px;
+  font-weight: 300;
+  width: 97px;
+  height: 36px;
+  border: #282c37 1px solid;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.categoryClicked {
+  color: #eeeeee;
+  background-color: #282c37;
+}
+.projectWrap {
+  padding: 0 2.3438vw;
+}
+.pageBtn {
+  font-family: "Pretendard";
+  font-size: 16px;
+  color: #eeeeee;
+  line-height: 36px;
+  font-weight: 300;
+  width: 131px;
+  height: 36px;
+  border-radius: 41px;
+  background-color: #282c37;
+  display: flex;
+  justify-content: space-between;
+}
+.arrowBtn {
+  width: 45px;
+  text-align: center;
+  cursor: pointer;
 }

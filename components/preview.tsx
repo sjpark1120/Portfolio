@@ -6,7 +6,7 @@ export default function Preview({ project }) {
   return (
     <Link href={`/project/${id}`}>
       <img src={image} className={styles.img} alt={title} />
-      <div>
+      <div className={styles.textBox}>
         <div className={styles.title}>{title}</div>
         <div className={styles.descriptionText}>{description}</div>
         <div className={styles.skill}>

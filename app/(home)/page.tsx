@@ -6,7 +6,6 @@ import About from "../../components/about";
 import { SectionsContainer, Section } from "react-fullpage";
 import Projects from "../../components/projects";
 import Contact from "../../components/contact";
-import Projects2 from "../../components/projects2";
 
 function Home() {
   const [initialActiveSection, setInitialActiveSection] = useState(null);
@@ -16,7 +15,7 @@ function Home() {
   let options = {
     scrollCallback: onScroll,
     sectionClassName: "section",
-    anchors: ["main", "about", "projects", "projects2", "contact"],
+    anchors: ["main", "about", "projects", "contact"],
     scrollBar: false,
     navigation: false,
     verticalAlign: false,
@@ -32,9 +31,6 @@ function Home() {
       </Section>
       <Section>
         <Projects />
-      </Section>
-      <Section>
-        <Projects2 />
       </Section>
       <Section>
         <Contact />
