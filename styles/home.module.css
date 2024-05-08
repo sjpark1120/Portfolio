@@ -1,1 +1,12 @@
+/* 부모 스크롤 스냅 컨테이너 */
+.scrollContainer {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: y mandatory; /* y 축 방향으로만 scroll snap 적용 */
+}
 
+/* 자식 스크롤 스냅 영역 */
+.scrollArea {
+  scroll-snap-align: start; /* 스크롤 위치 맞춤 */
+}

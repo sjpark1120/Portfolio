@@ -1,41 +1,27 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Main from "../../components/main";
 import styles from "../../styles/home.module.css";
 import About from "../../components/about";
-import { SectionsContainer, Section } from "react-fullpage";
 import Projects from "../../components/projects";
 import Contact from "../../components/contact";
 
 function Home() {
-  const [initialActiveSection, setInitialActiveSection] = useState(null);
-  const onScroll = (p) => {
-    if (initialActiveSection === null) setInitialActiveSection(p.activeSection);
-  };
-  let options = {
-    scrollCallback: onScroll,
-    sectionClassName: "section",
-    anchors: ["main", "about", "projects", "contact"],
-    scrollBar: false,
-    navigation: false,
-    verticalAlign: false,
-    arrowNavigation: true,
-  };
   return (
-    <SectionsContainer {...options} activeSection={initialActiveSection}>
-      <Section>
+    //fullpage로 수정
+    <div className={styles.scrollContainer}>
+      <div className={styles.scrollArea}>
         <Main />
-      </Section>
-      <Section>
+      </div>
+      <div className={styles.scrollArea}>
         <About />
-      </Section>
-      <Section>
+      </div>
+      <div className={styles.scrollArea}>
         <Projects />
-      </Section>
-      <Section>
+      </div>
+      <div className={styles.scrollArea}>
         <Contact />
-      </Section>
-    </SectionsContainer>
+      </div>
+    </div>
   );
 }
 

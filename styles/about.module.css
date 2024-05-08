@@ -173,9 +173,8 @@
 }
 .skillListContainer {
   display: flex;
-  height: 412px;
   width: 41.9792vw;
-  padding-top: 38px;
+  margin-top: 1.7188vw;
 }
 .skillList {
   width: 379px;
@@ -199,8 +198,8 @@
 }
 .skillFlex {
   display: flex;
-  row-gap: 20px;
+  row-gap: 0.7813vw;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 17.3438vw;
+  height: 18.5938vw;
 }
