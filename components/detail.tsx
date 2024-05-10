@@ -2,10 +2,12 @@ import React from "react";
 import styles from "../styles/detail.module.css";
 import projectslist from "../public/data";
 import Link from "next/link";
-function ProjectDetail({ projectId, setIsModalOpen }) {
-  const project = projectslist.find(
-    (project) => project.id === parseInt(projectId)
-  );
+interface ProjectDetailProps {
+  projectId: number;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+function ProjectDetail({ projectId, setIsModalOpen }: ProjectDetailProps) {
+  const project = projectslist.find((project) => project.id === projectId);
   if (!project) {
     return (
       <div className={styles.container}>
@@ -75,14 +77,14 @@ function ProjectDetail({ projectId, setIsModalOpen }) {
             <div className={styles.sectionTitle}>📊 작업 기여도</div>
             <div className={styles.taskFlex}>
               {project.task.map((taskItem, idx) => (
-                <>
+                <div key={idx}>
                   <div className={styles.grayBox}>{taskItem.title}</div>
                   <ul className={styles.listItem}>
                     {taskItem.summary.map((summaryItem, idx) => (
                       <li key={idx}>{summaryItem}</li>
                     ))}
                   </ul>
-                </>
+                </div>
               ))}
             </div>
           </div>
@@ -90,7 +92,7 @@ function ProjectDetail({ projectId, setIsModalOpen }) {
             <div className={styles.sectionTitle}>💥 트러블 슈팅</div>
             <div className={styles.taskFlex}>
               {project.issue.map((issueItem, idx) => (
-                <>
+                <div key={idx}>
                   <div className={styles.grayBox}>
                     Trouble{idx + 1}. {issueItem.title}
                   </div>
@@ -99,7 +101,7 @@ function ProjectDetail({ projectId, setIsModalOpen }) {
                       <li key={idx}>{summaryItem}</li>
                     ))}
                   </ul>
-                </>
+                </div>
               ))}
             </div>
           </div>
@@ -110,7 +112,7 @@ function ProjectDetail({ projectId, setIsModalOpen }) {
             <div className={styles.sectionInfo}>클릭시 크게 볼수있습니다.</div>
             <div className={styles.screenShotBox}>
               {project.screenshot.map((shotImg, idx) => (
-                <div>
+                <div key={idx}>
                   <img src={shotImg.src} className={styles.screenShotImg} />
                   <div className={styles.screenShotPage}>{shotImg.page}</div>
                 </div>

@@ -1,7 +1,18 @@
 import styles from "../styles/preview.module.css";
 import Link from "next/link";
+interface Project {
+  title: string;
+  description: string;
+  skills: string[];
+  image: string;
+  id: number;
+}
 
-export default function Preview({ project, onclick }) {
+interface PreviewProps {
+  project: Project;
+  onclick: () => void;
+}
+const Preview: React.FC<PreviewProps> = ({ project, onclick }) => {
   const { title, description, skills, image, id } = project;
   return (
     <div onClick={onclick}>
@@ -19,4 +30,5 @@ export default function Preview({ project, onclick }) {
       </div>
     </div>
   );
-}
+};
+export default Preview;

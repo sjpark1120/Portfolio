@@ -2,20 +2,23 @@
 import styles from "../styles/projects.module.css";
 import Preview from "./preview";
 import projectsData from "../public/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectDetail from "./detail";
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState(0);
-  //나중에 가로 스크롤 페이지네이션으로 변경
-  if (isModalOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-  }
-  const handleOnClick = (projectId) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 3;
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isModalOpen]);
+  const handleOnClick = (projectId: number) => {
     setSelectedProjectId(projectId);
     setIsModalOpen(true);
   };
@@ -24,19 +27,18 @@ export default function Projects() {
       ? projectsData
       : projectsData.filter((project) => project.type === selectedCategory);
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
+    setCurrentPage(1);
   };
-  const handleScroll = (direction) => {
-    const container = document.querySelector(`.${styles.projectBox}`);
-    const scrollStep = 500;
-    if (direction === "left") {
-      container.scrollLeft -= scrollStep;
-    } else if (direction === "right") {
-      container.scrollLeft += scrollStep;
-    }
-    setScrollPosition(container.scrollLeft);
-  };
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentProjects = filteredProjects.slice(
+    indexOfFirstProject,
+    indexOfLastProject
+  );
+
   return (
     <div>
       {isModalOpen && (
@@ -75,17 +77,23 @@ export default function Projects() {
             <div className={styles.pageBtn}>
               <span
                 className={styles.arrowBtn}
-                onClick={() => handleScroll("left")}
+                onClick={() =>
+                  setCurrentPage(currentPage === 1 ? 1 : currentPage - 1)
+                }
               >{`<`}</span>
-              <span>{`1 / 2`}</span>
+              <span>{`${currentPage} / ${totalPages}`}</span>
               <span
                 className={styles.arrowBtn}
-                onClick={() => handleScroll("right")}
+                onClick={() =>
+                  setCurrentPage(
+                    currentPage === totalPages ? totalPages : currentPage + 1
+                  )
+                }
               >{`>`}</span>
             </div>
           </div>
           <div className={styles.projectBox}>
-            {filteredProjects.map((project) => (
+            {currentProjects.map((project) => (
               <Preview
                 key={project.id}
                 project={project}
