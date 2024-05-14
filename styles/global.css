@@ -18,3 +18,10 @@ a:visited {
   font-family: "Pretendard";
   src: url("/fonts/PretendardVariable.woff2") format("woff2");
 }
+body {
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
