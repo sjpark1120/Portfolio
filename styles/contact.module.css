@@ -85,6 +85,7 @@
   font-size: 14px;
   font-family: "Pretendard";
   font-weight: 300;
+  cursor: pointer;
 }
 .labelText {
   margin-bottom: 10px;
@@ -145,4 +146,11 @@
   flex-direction: row;
   align-items: center;
   gap: 16px;
+}
+.checkText {
+  font-size: 16px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  color: #4d4d4d;
+  margin-left: 10px;
 }

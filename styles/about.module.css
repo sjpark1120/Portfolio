@@ -97,6 +97,7 @@
   font-family: "Pretendard";
   font-size: 16px;
   font-weight: 300;
+  cursor: pointer;
 }
 .tabIndicator {
   position: absolute;

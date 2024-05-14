@@ -1,6 +1,31 @@
 import Link from "next/link";
 import styles from "../styles/contact.module.css";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 export default function Contact() {
+  const form = useRef<HTMLFormElement>(null);
+  const [isSubmit, setIsSubmit] = useState(false);
+  const YOUR_SERVICE_ID = "service_m9n0gkt";
+  const YOUR_TEMPLATE_ID = "template_5808e8l";
+  const YOUR_PUBLIC_KEY = "_93_FJ9pSMX_9VW9D";
+
+  const sendEmail: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    if (!form.current) return;
+    emailjs
+      .sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, form.current, {
+        publicKey: YOUR_PUBLIC_KEY,
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          setIsSubmit(true);
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   return (
     <div className={styles.container}>
       <div>
@@ -14,22 +39,37 @@ export default function Contact() {
             제 포트폴리오를 끝까지 봐주셔서 감사합니다. 전하고 싶은 의견이
             있으시면 보내주세요. 사소한 것이라도 소중히 듣고 배우겠습니다.
           </div>
-          <form className={styles.inputBox}>
+          <form className={styles.inputBox} ref={form} onSubmit={sendEmail}>
             <div className={styles.sendBoxFlex}>
               <div className={styles.sendBox}>
                 <label className={styles.labelText}>NAME</label>
-                <input type="text" className={styles.inputText} />
+                <input
+                  type="text"
+                  className={styles.inputText}
+                  name="from_name"
+                />
               </div>
               <div className={styles.sendBox}>
                 <label className={styles.labelText}>EMAIL</label>
-                <input type="email" className={styles.inputText} />
+                <input
+                  type="email"
+                  className={styles.inputText}
+                  name="from_email"
+                />
               </div>
             </div>
             <label className={styles.labelText}>MESSAGE</label>
-            <textarea className={styles.inputTextarea} />
-            <button type="submit" className={styles.submitBtn}>
-              SUBMIT
-            </button>
+            <textarea className={styles.inputTextarea} name="message" />
+            <div>
+              <button type="submit" className={styles.submitBtn}>
+                SUBMIT
+              </button>
+              {isSubmit && (
+                <span className={styles.checkText}>
+                  이메일이 전송되었습니다!
+                </span>
+              )}
+            </div>
           </form>
         </div>
         <div className={styles.contactInfoBox}>

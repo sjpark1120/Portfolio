@@ -15,7 +15,7 @@ interface PreviewProps {
 const Preview: React.FC<PreviewProps> = ({ project, onclick }) => {
   const { title, description, skills, image, id } = project;
   return (
-    <div onClick={onclick}>
+    <div onClick={onclick} style={{ cursor: "pointer" }}>
       <img src={image} className={styles.img} alt={title} />
       <div className={styles.textBox}>
         <div className={styles.title}>{title}</div>
