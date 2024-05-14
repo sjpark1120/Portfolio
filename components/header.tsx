@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 export default function Header() {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState(""); // 현재 경로를 저장할 상태
-  const sideMenuRef = useRef(null);
+  const [currentPath, setCurrentPath] = useState(window.location.hash); // 현재 경로를 저장할 상태
+  const sideMenuRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   useEffect(() => {
     const handleHashChange = () => {
@@ -18,10 +18,13 @@ export default function Header() {
     return () => {
       window.removeEventListener("hashchange", handleHashChange);
     };
-  }, [currentPath]);
+  }, []);
 
-  function handleOutsideClick(event) {
-    if (isSideMenuOpen && !sideMenuRef.current.contains(event.target)) {
+  function handleOutsideClick(event: any) {
+    if (
+      isSideMenuOpen &&
+      !sideMenuRef.current?.contains(event.target as Node)
+    ) {
       setIsSideMenuOpen(false);
     }
   }

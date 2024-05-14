@@ -4,9 +4,12 @@ import Preview from "./preview";
 import projectsData from "../public/data";
 import { useEffect, useState } from "react";
 import ProjectDetail from "./detail";
-export default function Projects() {
+interface modalState {
+  isModalOpen: boolean;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const Projects: React.FC<modalState> = ({ isModalOpen, setIsModalOpen }) => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 3;
@@ -106,4 +109,5 @@ export default function Projects() {
       </div>
     </div>
   );
-}
+};
+export default Projects;
