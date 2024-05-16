@@ -163,3 +163,27 @@
   opacity: 0.4;
   z-index: 15;
 }
+@media screen and (max-width: 767px) {
+  /* 모바일 */
+  .text {
+    display: none;
+  }
+  .header {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+  .sideMenu {
+    width: 100%;
+    padding: 30px 0 30px 30px;
+  }
+  .index {
+    font-size: 45px;
+    margin-left: 45px;
+    gap: 35px;
+  }
+  .copyright {
+    margin-left: 45px;
+    font-size: 20px;
+    width: 270px;
+  }
+}

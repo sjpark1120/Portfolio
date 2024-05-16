@@ -52,7 +52,7 @@ function ProjectDetail({ projectId, setIsModalOpen }: ProjectDetailProps) {
                 </Link>
               </div>
             </div>
-            <img src={project.image} width={485} />
+            <img src={project.image} className={styles.mainImg} />
           </div>
           <div className={styles.line}></div>
           <div className={styles.sectionBox}>
@@ -106,9 +106,7 @@ function ProjectDetail({ projectId, setIsModalOpen }: ProjectDetailProps) {
             </div>
           </div>
           <div className={styles.sectionBox}>
-            <div className={styles.sectionTitle} style={{ margin: "0" }}>
-              📸 사이트 캡쳐
-            </div>
+            <div className={styles.sectionTitle}>📸 사이트 캡쳐</div>
             <div className={styles.sectionInfo}>클릭시 크게 볼수있습니다.</div>
             <div className={styles.screenShotBox}>
               {project.screenshot.map((shotImg, idx) => (

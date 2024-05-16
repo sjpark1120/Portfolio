@@ -154,3 +154,53 @@
   gap: 9px;
   margin-bottom: 60px;
 }
+.mainImg {
+  width: 485px;
+}
+.sectionTitle:nth-last-child(1) {
+  margin-bottom: 0px;
+}
+@media screen and (max-width: 767px) {
+  /* 모바일 */
+  .modalContainer {
+    margin-top: 40px;
+    width: 93%;
+    padding: 30px 20px 0 20px;
+  }
+  .projectBody {
+    width: 100%;
+  }
+  .projectTitle {
+    font-size: 35px;
+  }
+  .overview {
+    flex-direction: column-reverse;
+    margin-top: 20px;
+    gap: 15px;
+  }
+  .mainImg {
+    width: 100%;
+  }
+  .projectDescriptionBox {
+    padding: 0;
+    gap: 15px;
+  }
+  .linkBox {
+    gap: 0;
+    justify-content: space-around;
+  }
+  .line {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .screenShotImg {
+    width: 100%;
+    height: auto;
+  }
+  .sectionInfo {
+    display: none;
+  }
+  .sectionTitle:nth-last-child(1) {
+    margin-bottom: 10px;
+  }
+}

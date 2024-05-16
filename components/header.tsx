@@ -62,6 +62,7 @@ export default function Header() {
                 ? styles.currentIndex
                 : styles.not
             }
+            onClick={() => setIsSideMenuOpen(false)}
           >
             {currentPath === "#main" || currentPath === "" ? "/" : ""}Home
           </a>
@@ -70,6 +71,7 @@ export default function Header() {
             className={
               currentPath === "#about" ? styles.currentIndex : styles.not
             }
+            onClick={() => setIsSideMenuOpen(false)}
           >
             {currentPath === "#about" ? "/" : ""}AboutMe
           </a>
@@ -78,6 +80,7 @@ export default function Header() {
             className={
               currentPath === "#projects" ? styles.currentIndex : styles.not
             }
+            onClick={() => setIsSideMenuOpen(false)}
           >
             {currentPath === "#projects" ? "/" : ""}Projects
           </a>
@@ -86,6 +89,7 @@ export default function Header() {
             className={
               currentPath === "#contact" ? styles.currentIndex : styles.not
             }
+            onClick={() => setIsSideMenuOpen(false)}
           >
             {currentPath === "#contact" ? "/" : ""}Contact
           </a>

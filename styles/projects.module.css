@@ -87,3 +87,48 @@
   text-align: center;
   cursor: pointer;
 }
+@media screen and (max-width: 767px) {
+  /* 모바일 */
+  .container {
+    padding-top: 100px;
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+  .title {
+    font-size: 30px;
+    line-height: normal;
+    display: block;
+  }
+  .miniText {
+    font-size: 20px;
+    line-height: normal;
+    margin-left: 0;
+  }
+  .bottomLine {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .categryContainer {
+    gap: 5px;
+  }
+  .categoryBtn {
+    width: 55px;
+    font-size: 15px;
+  }
+  .pageBtn {
+    width: 91px;
+  }
+  .arrowBtn {
+    width: 30px;
+  }
+  .projectBox {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .projectWrap {
+    padding: 0;
+    height: 100%;
+    margin-top: 20px;
+  }
+}

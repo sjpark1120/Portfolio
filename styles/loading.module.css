@@ -26,3 +26,9 @@
     border-radius: 0 0 80px 80px;
   }
 }
+@media screen and (max-width: 767px) {
+  /* 모바일 */
+  .loadingImg {
+    width: 300px;
+  }
+}

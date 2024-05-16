@@ -60,7 +60,7 @@ export default function Contact() {
             </div>
             <label className={styles.labelText}>MESSAGE</label>
             <textarea className={styles.inputTextarea} name="message" />
-            <div>
+            <div className={styles.submitBox}>
               <button type="submit" className={styles.submitBtn}>
                 SUBMIT
               </button>
