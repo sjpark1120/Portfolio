@@ -11,7 +11,7 @@ export default function About() {
         <span className={styles.miniText}>저를 소개합니다</span>
       </div>
       <div className={styles.aboutBox}>
-        <div className={styles.imgBox}></div>
+        <img src="/assets/profile_img (6).jpeg" className={styles.imgBox} />
         <div className={styles.aboutTextBox}>
           <div className={styles.btnBox}>
             <div
