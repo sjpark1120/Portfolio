@@ -2,12 +2,13 @@ import React from "react";
 import styles from "../styles/detail.module.css";
 import projectslist from "../public/data";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 interface ProjectDetailProps {
   projectId: number;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-function ProjectDetail({ projectId, setIsModalOpen }: ProjectDetailProps) {
+function ProjectDetail({ projectId }: ProjectDetailProps) {
   const project = projectslist.find((project) => project.id === projectId);
+  const router = useRouter();
   if (!project) {
     return (
       <div className={styles.container}>
@@ -16,7 +17,7 @@ function ProjectDetail({ projectId, setIsModalOpen }: ProjectDetailProps) {
     );
   }
   return (
-    <div className={styles.modalBack} onClick={() => setIsModalOpen(false)}>
+    <div className={styles.modalBack} onClick={() => router.back()}>
       <div
         className={styles.modalContainer}
         onClick={(e) => e.stopPropagation()}

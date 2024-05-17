@@ -6,7 +6,7 @@ import About from "../../components/about";
 import Projects from "../../components/projects";
 import Contact from "../../components/contact";
 import { throttle } from "lodash";
-
+import { usePathname } from "next/navigation";
 const Home = () => {
   const sectionRefs = [
     useRef<HTMLDivElement>(null),
@@ -15,16 +15,15 @@ const Home = () => {
     useRef<HTMLDivElement>(null),
   ];
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionNames = ["main", "about", "projects", "contact"];
-
+  const pathname = usePathname();
   const changeUrlHash = useCallback((hash: string) => {
     window.history.pushState({}, "", `#${hash}`);
     window.dispatchEvent(new HashChangeEvent("hashchange"));
   }, []);
 
   const handleScroll = throttle((e: WheelEvent) => {
-    if (isModalOpen) {
+    if (pathname.startsWith("/detail")) {
       return;
     }
     e.preventDefault();
@@ -70,12 +69,7 @@ const Home = () => {
         <div ref={sectionRefs[index]} id={name} key={name}>
           {index === 0 && <Main />}
           {index === 1 && <About />}
-          {index === 2 && (
-            <Projects
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-            />
-          )}
+          {index === 2 && <Projects />}
           {index === 3 && <Contact />}
         </div>
       ))}

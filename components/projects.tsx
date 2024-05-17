@@ -2,28 +2,15 @@
 import styles from "../styles/projects.module.css";
 import Preview from "./preview";
 import projectsData from "../public/data";
-import { useEffect, useState } from "react";
-import ProjectDetail from "./detail";
-interface modalState {
-  isModalOpen: boolean;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-const Projects: React.FC<modalState> = ({ isModalOpen, setIsModalOpen }) => {
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedProjectId, setSelectedProjectId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 3;
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [isModalOpen]);
+  const router = useRouter();
   const handleOnClick = (projectId: number) => {
-    setSelectedProjectId(projectId);
-    setIsModalOpen(true);
+    router.push(`/detail/${projectId}`);
   };
   const filteredProjects =
     selectedCategory === "all"
@@ -44,12 +31,6 @@ const Projects: React.FC<modalState> = ({ isModalOpen, setIsModalOpen }) => {
 
   return (
     <div>
-      {isModalOpen && (
-        <ProjectDetail
-          projectId={selectedProjectId}
-          setIsModalOpen={setIsModalOpen}
-        />
-      )}
       <div className={styles.container}>
         <div>
           <span className={styles.title}>/PROJECT</span>

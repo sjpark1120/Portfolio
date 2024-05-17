@@ -6,8 +6,10 @@ import Loading from "./loadingWindow";
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   const [isloading, setisLoading] = useState(true);
 
@@ -20,6 +22,7 @@ export default function RootLayout({
         <Loading isloading={isloading} />
         <Header />
         {children}
+        {modal}
       </body>
     </html>
   );

@@ -12,10 +12,10 @@ interface PreviewProps {
   project: Project;
   onclick: () => void;
 }
-const Preview: React.FC<PreviewProps> = ({ project, onclick }) => {
+const Preview: React.FC<PreviewProps> = ({ project }) => {
   const { title, description, skills, image, id } = project;
   return (
-    <div onClick={onclick} className={styles.projectBox}>
+    <Link href={`/detail/${id}`} className={styles.projectBox}>
       <img src={image} className={styles.img} alt={title} />
       <div className={styles.textBox}>
         <div className={styles.title}>{title}</div>
@@ -28,7 +28,7 @@ const Preview: React.FC<PreviewProps> = ({ project, onclick }) => {
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 export default Preview;
