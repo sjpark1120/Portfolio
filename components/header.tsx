@@ -4,20 +4,25 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 export default function Header() {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState(window.location.hash); // 현재 경로를 저장할 상태
+  const [currentPath, setCurrentPath] = useState<string | null>(null); // 현재 경로를 저장할 상태
   const sideMenuRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentPath(window.location.hash);
-      console.log(window.location.hash);
-    };
-    // 페이지가 로드될 때와 해시가 변경될 때 이벤트를 등록
-    window.addEventListener("hashchange", handleHashChange);
-    // 컴포넌트가 언마운트될 때 이벤트 제거
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
+    if (typeof window !== "undefined") {
+      // 클라이언트 사이드에서만 실행
+      setCurrentPath(window.location.hash); // window 객체에 접근
+
+      const handleHashChange = () => {
+        setCurrentPath(window.location.hash);
+      };
+
+      // 페이지가 로드될 때와 해시가 변경될 때 이벤트를 등록
+      window.addEventListener("hashchange", handleHashChange);
+      // 컴포넌트가 언마운트될 때 이벤트 제거
+      return () => {
+        window.removeEventListener("hashchange", handleHashChange);
+      };
+    }
   }, []);
 
   function handleOutsideClick(event: any) {
