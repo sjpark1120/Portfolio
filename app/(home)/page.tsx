@@ -22,7 +22,7 @@ const Home = () => {
     window.dispatchEvent(new HashChangeEvent("hashchange"));
   }, []);
 
-  const handleScroll = throttle((e: WheelEvent) => {
+  const handleScroll = (e: WheelEvent) => {
     if (pathname.startsWith("/detail")) {
       return;
     }
@@ -56,7 +56,7 @@ const Home = () => {
         changeUrlHash(sectionNames[currentSectionIndex - 1]);
       }
     }
-  }, 300); // 1000ms = 1초 간격으로 이벤트 실행
+  }; // 1000ms = 1초 간격으로 이벤트 실행
 
   useEffect(() => {
     window.addEventListener("wheel", handleScroll, { passive: false });

@@ -1,14 +1,22 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import styles from "../styles/detail.module.css";
 import projectslist from "../public/data";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Screenshot from "./screenshot";
 interface ProjectDetailProps {
   projectId: number;
 }
 function ProjectDetail({ projectId }: ProjectDetailProps) {
   const project = projectslist.find((project) => project.id === projectId);
   const router = useRouter();
+  const [isScreenshotModalOpen, setIsScreenshotModalOpen] = useState(false);
+  const [clickedScreenshot, setClickedScreenshot] = useState(0);
+  const handleClickScreenshot = (idx: number) => () => {
+    setIsScreenshotModalOpen(true);
+    setClickedScreenshot(idx);
+  };
   if (!project) {
     return (
       <div className={styles.container}>
@@ -22,6 +30,13 @@ function ProjectDetail({ projectId }: ProjectDetailProps) {
         className={styles.modalContainer}
         onClick={(e) => e.stopPropagation()}
       >
+        {isScreenshotModalOpen && (
+          <Screenshot
+            projectId={projectId}
+            setIsScreenshotModalOpen={setIsScreenshotModalOpen}
+            clickedScreenshot={clickedScreenshot}
+          />
+        )}
         <div className={styles.projectBody}>
           <div className={styles.projectType}>
             {project.type.toUpperCase()} PROJECT
@@ -111,7 +126,11 @@ function ProjectDetail({ projectId }: ProjectDetailProps) {
             <div className={styles.sectionInfo}>클릭시 크게 볼수있습니다.</div>
             <div className={styles.screenShotBox}>
               {project.screenshot.map((shotImg, idx) => (
-                <div key={idx}>
+                <div
+                  key={idx}
+                  className={styles.imgBox}
+                  onClick={handleClickScreenshot(idx)}
+                >
                   <img src={shotImg.src} className={styles.screenShotImg} />
                   <div className={styles.screenShotPage}>{shotImg.page}</div>
                 </div>
