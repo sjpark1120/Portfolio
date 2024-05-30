@@ -5,6 +5,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "SUJIN'S PORTFOLIO ",
   description: "박수진의 포트폴리오입니다.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({

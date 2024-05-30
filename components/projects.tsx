@@ -34,7 +34,9 @@ const Projects = () => {
       <div className={styles.container}>
         <div>
           <span className={styles.title}>/PROJECT</span>
-          <span className={styles.miniText}>최근 프로젝트들</span>
+          <span className={styles.miniText}>
+            클릭 시 프로젝트를 자세히 볼 수 있습니다.
+          </span>
         </div>
         <div className={styles.projectWrap}>
           <div className={styles.buttonContainer}>
