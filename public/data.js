@@ -1,45 +1,56 @@
+import { title } from "process";
+
 const projectslist = [
   {
     id: 1,
     type: "team",
     title: "GROW UP",
-    description: "화면이나 캠을 공유하며 다른 사람과 함께 공부할 수 있는 웹 사이트입니다.",
-    descriptionDetail: `GROWUP은 화면이나 캠을 공유하며 다른 사람과 함께 공부할 수 있는 웹 커뮤니티 사이트입니다.\n
-    IT연합동아리인 UMC에서 진행한 팀 프로젝트입니다.\n
-    스터디윗미를 하면서 나름의 질문도 하고 나름의 대답도 하며 같이 성장해나갈 수 있습니다.
-커뮤니티를 제공하여 나와 뜻이 같은 사람들과 소통을 하며 나의 능력을 더욱 성장해나갈 수 있습니다.
-나의 플래너, 투두리스트를 작성하고 ‘라이브업’과 연동하여 그 목록에 쏟은 시간을 재며 나의 작업 시간을 한 눈에 알아볼 수 있습니다.`,
+    description: "화면이나 캠을 공유하며 다른 사람과 함께 공부할 수 있는 웹 커뮤니티 사이트입니다.",
+    descriptionDetail: `Grow Up은 IT 연합 동아리 UMC에서 진행한 팀 프로젝트로, 온라인 상에서 스터디 메이트를 찾아 함께 공부하며 성장할 수 있는 웹 커뮤니티 사이트입니다.\n
+     WebRTC 기술을 활용하여 화면이나 웹캠을 공유하며 실시간으로 소통할 수 있어, 마치 같은 공간에 있는 것처럼 자유롭게 질문과 대답을 주고받으며 서로 배울 수 있습니다.
+     또한 사이트 내 커뮤니티 기능을 통해 비슷한 목표와 관심사를 가진 사람들과 소통하며 정보를 공유하고 능력 향상에 도움을 받을 수 있습니다. 
+     개인 플래너와 투두 리스트를 작성하여 일정을 관리할 수 있으며, '라이브업' 기능과 연동하여 작업한 시간을 측정하고 한 눈에 확인할 수 있어 시간 관리에도 용이합니다.`,
     skills: ["React", "Styled-components", "Redux"],
     image: "/assets/img1.png",
-    mainFunction: ["webRtc를 이용한 실시간 1대1 통신", "로그인, 회원가입 기능", "커뮤니티 기능", "일정 관리 기능"],
+    mainFunction: ["WebRTC를 이용한 실시간 1대1 화상 통신 기능",
+      "JWT 토큰 기반의 로그인, 회원가입 및 인증 기능",
+      "커뮤니티 게시판 기능",
+      "개인 일정 관리 및 작업 시간 관리 기능"],
     period: "2024.01.01 ~ 2024.03.05",
     participants: "프론트3, 백3, PM1, 다자인1",
     role: "FRONT-END",
     task: [
       {
-        title: '프론트엔드 팀장',
-        summary: ['전체적인 파일 구조 만듬', '깃을 통한 전체 코드 관리', '팀원들의 역할분배 및 소통']
+        title: '프론트엔드 팀 리더',
+        summary: ['전체 프론트엔드 파일 구조 설계 및 아키텍처 구축', 'Git을 통한 프론트엔드 코드 관리 및 병합', '프론트엔드 팀원들의 역할 분배, 작업 현황 파악 및 소통 총괄']
       },
       {
-        title: '로그인, 회원가입 페이지',
-        summary: ['토큰이용한..', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
+        title: '로그인, 회원가입 페이지 구현',
+        summary: ['JWT 토큰 기반의 인증 시스템 구현 (액세스 토큰, 리프레시 토큰 발급 및 관리)', '회원가입, 이메일 인증 기능 구현', '새로고침 시에도 로그인 상태 유지를 위한 로직 구현']
       }, {
-        title: '라이브 룸 페이지',
-        summary: ['실시간 어쩌고', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
+        title: '라이브 룸 페이지 구현',
+        summary: ['현재 진행 중인 라이브 룸 목록 조회 및 표시 기능', '회원들의 누적 공부 시간에 따른 랭킹 표시 기능']
       },
     ],
     issue: [{
-      title: '로그인 토큰 문제',
-      summary: ['문제: 내 컴퓨터에서 정상 작동하던 로그인, 회원가입이 팀원 컴퓨터에선 안됨', '해결: 인터셉터']
-    }, {
-      title: '백엔드와의 소통 문제',
-      summary: ['문제: PM과 백엔드 간의 소통 문제로 라이브룸 방 조회 관련 api가 중복되어 만들어짐', '해결:뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
+      title: '로그인 토큰 이슈',
+      summary: ['문제: 개발 환경에서는 정상 작동하던 로그인, 회원가입이 팀원 환경에서는 작동하지 않음',
+        '해결:  Axios 인터셉터를 활용하여 API 응답 시 에러 코드가 발생하면 자동으로 토큰 재발급 API를 요청하도록 구현']
+    },
+    {
+      title: '백엔드 소통 이슈', summary: ['문제: PM과 백엔드 간 소통 문제로 라이브 룸 조회 관련 API가 중복 생성됨',
+        '해결: PM, 백엔드와 협의 후 한 쪽의 API로 통일하고 다른 쪽에서 지원하기로 함']
     },
     ],
-    screenshot: [{ src: '/assets/screenshot/growup (1).png', page: '메인 페이지' },
-    { src: '/assets/screenshot/growup (2).png', page: '로그인 페이지' },
-    { src: '/assets/screenshot/growup (3).png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },
+    screenshot: [{ src: '/assets/screenshot/growup/growup (1).png', page: '메인 페이지' },
+    { src: '/assets/screenshot/growup/growup (3).png', page: '로그인 페이지' },
+    { src: '/assets/screenshot/growup/growup (10).jpg', page: '회원가입 페이지' },
+    { src: '/assets/screenshot/growup/growup (8).jpg', page: '그로우룸 페이지' },
+    { src: '/assets/screenshot/growup/growup (4).jpg', page: '라이브업 페이지1' },
+    { src: '/assets/screenshot/growup/growup (5).jpg', page: '라이브업 페이지2' },
+    { src: '/assets/screenshot/growup/growup (9).jpg', page: '라이브업 참가 페이지' },
+    { src: '/assets/screenshot/growup/growup (7).jpg', page: '마이 페이지1' },
+    { src: '/assets/screenshot/growup/growup (6).jpg', page: '마이 페이지2' },
     ],
     github: "https://github.com/sjpark1120/GrowUp-Frontend",
     liveLink: "https://growup-umc5th.netlify.app/",
@@ -49,40 +60,46 @@ const projectslist = [
     type: "solo",
     title: "TNOVEL",
     description: "여행 기록을 공유하는 SNS 웹 사이트 입니다.",
-    descriptionDetail: `간단한 사이트소개입니다. 
-    그로우업은 어쩌고 저쩌고한 사이트입니다. IT동아리인 UMC에서 팀프로젝트로 진행한 어쩌고 저쩌고
-    프로젝트 설명입니다. 어쩌고 저쩌고
-    이런 저런 간단한 설명을 써넣어야 겠습니다.`,
+    descriptionDetail: `TNOVEL은 그릿지에서 주최한 시뮬레이션 챌린지 '그릿지 테스트'를 통해 제작한 프로젝트입니다.\n
+     개발 가이드라인, 화면 설계서, 피그마 에셋, API 등이 제공되었고, 주어진 기간 내에 핵심 기능을 구현하는 것이 목표였습니다.
+      인스타그램과 유사한 여행 기록 SNS로, 로그인, 소셜 로그인(카카오), 회원가입, 게시글 작성/조회, 결제 시스템 등의 기능을 구현했습니다.
+     챌린지 결과 상위 10% 안에 들어 합격하였습니다.`,
     skills: ["React", "Typescript", "Styled-components", "Recoil"],
     image: "/assets/img2.png",
-    mainFunction: ["게시글, 댓글을 작성하며 여행기록을 공유하는 웹사이트"],
+    mainFunction: ["여행 기록 게시글 및 댓글 작성/공유 기능",
+      "사진 업로드 기능",
+      "게시글 무한 스크롤 기능",
+      "포트원(구 아임포트) 결제 모듈 연동"],
     period: "2024.01.01 ~ 2024.03.05",
     participants: "개인 프로젝트",
     role: "FRONT-END",
-    task: [{
-      title: '로그인, 회원가입 페이지',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 기능', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
-    }, {
-      title: '로그인, 회원가입 페이지',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 기능', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
-    },
+    task: [
+      {
+        title: '인증 기능 구현',
+        summary: ['로그인, 소셜 로그인(카카오) 기능 개발', '회원가입 시 생일 입력, 약관 동의 프로세스 구현']
+      }, {
+        title: '게시글 및 타임라인 기능',
+        summary: ['게시글 CRUD 및 댓글 Read 기능 개발', '게시글 타임라인 무한 스크롤 기능 구현', '이미지 첨부 시 파일 업로드 용량 제한 적용']
+      }, {
+        title: '결제 모듈 연동',
+        summary: ['포트원(구 아임포트) 결제 모듈 연동 및 화면 구현', 'PC 환경에서 결제 후 콜백 함수를 통한 결제 성공 확인', '모바일 환경에서 리다이렉트 URL로 이동 후 결제 성공 확인']
+      },
     ],
     issue: [{
-      title: '어떤 특정한 경우에 생겼던 문제',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 해결', '뭐어쩌고를 이용한 해결!']
-    }, {
-      title: '어떤 특정한 경우에 생겼던 문제2',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 기능', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
+      title: '게시글 조회 순서 이슈',
+      summary: ['문제: 게시글 조회 API를 사용하면 이미 페이지네이션된 결과가 반환되어, 전체 페이지 수를 알 수 없어 최신 순으로 조회할 수 없음',
+        '해결: useEffect를 활용하여 첫 접속 시 첫 페이지를 조회하고 전체 페이지 수를 파악한 후, 마지막 페이지(최신)를 불러오도록 구현. 무한 스크롤 시 페이지를 1씩 줄여가며 이전 페이지를 불러옴']
     },
     ],
-    screenshot: [{ src: '/assets/screenshot/tnovel (3).png', page: '로그인 페이지' },
-    { src: '/assets/screenshot/tnovel (2).png', page: '게시글 조회 페이지' },
-    { src: '/assets/screenshot/tnovel (1).png', page: '프로필 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },],
+    screenshot: [{ src: '/assets/screenshot/tnovel/tnovel (4).png', page: '로그인 페이지' },
+    { src: '/assets/screenshot/tnovel/tnovel (5).png', page: '회원가입 페이지' },
+    { src: '/assets/screenshot/tnovel/tnovel (2).png', page: '게시글 작성' },
+    { src: '/assets/screenshot/tnovel/tnovel (3).png', page: '게시글 조회' },
+    { src: '/assets/screenshot/tnovel/tnovel (8).png', page: '타임라인' },
+    { src: '/assets/screenshot/tnovel/tnovel (1).png', page: '결제 페이지' },
+    ],
     github: "https://github.com/sjpark1120/Gridge-Test-WEB",
-    liveLink: "",
+    liveLink: "https://tnovel.vercel.app/",
   },
   {
     id: 3,
@@ -90,37 +107,48 @@ const projectslist = [
     title: "PORTPOLIO SITE",
     description: "현재 보고있는 포트폴리오 사이트입니다.",
     descriptionDetail: `간단한 사이트소개입니다. 
-    그로우업은 어쩌고 저쩌고한 사이트입니다. IT동아리인 UMC에서 팀프로젝트로 진행한 어쩌고 저쩌고
-    프로젝트 설명입니다. 어쩌고 저쩌고
-    이런 저런 간단한 설명을 써넣어야 겠습니다.`,
+    지금 보고있는 포트폴리오 사이트입니다. nextjs14를 이용해 app router로 구현했습니다.
+    제 자기소개와 지금까지 진행한 포트폴리오를 소개하고있습니다.
+    디자인, 프론트엔드 모두 직접했습니다.`,
     skills: ["NEXTJS", "TYPESCRIPT", "CSS-MODULE"],
     image: "/assets/img3.png",
-    mainFunction: ["포트폴리오 사이트입니다."],
+    mainFunction: ["자기소개",
+      "포트폴리오 소개",
+      "이메일 보내기 기능",
+      "fullpage기능"
+    ],
     period: "2024.01.01 ~ 2024.03.05",
     participants: "개인 프로젝트",
     role: "DESIGN, FRONT-END",
     task: [{
-      title: '로그인, 회원가입 페이지',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 기능', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
+      title: '디자인',
+      summary: ['figma를 통해 전체적인 사이트 디자인', '모바일 반응형 디자인 구현']
     }, {
-      title: '로그인, 회원가입 페이지',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 기능', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
+      title: 'fullpage 기능 구현',
+      summary: ['ㅎㅎ', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
+    }, {
+      title: '이메일 전송 기능 구현',
+      summary: ['Email.js를 이용해 CONTACT페이지의 이메일 전송기능을 구현']
+    }, {
+      title: '모달 라우팅 구현',
+      summary: ['nextjs14의  Intercepting Routes랑 Parallel Routes 를 이용해서 구현', '사용자 경험도 상승하고 모달마다 주소 다르게 줄 수 있음. 이러면 모달창을 앱 내에서 탐색할 때는 모달로, 페이지 새로고침하면 독립형 페이지로 렌더링 가능함.']
     },
     ],
     issue: [{
-      title: '어떤 특정한 경우에 생겼던 문제',
+      title: 'fullpage 기능 구현이슈',
       summary: ['뭐어쩌고를 이용한 뭐 어쩌고 해결', '뭐어쩌고를 이용한 해결!']
     }, {
-      title: '어떤 특정한 경우에 생겼던 문제2',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 기능', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
+      title: '로딩 이슈',
+      summary: ['문제: nextjs의 특수파일인  loading.tsx으로 구현하니까 모든 로딩상황(이미지, 아이콘 로딩등등)에서 게속 로딩 창이 떳음. 난 초기 실행 한번만 로딩창이 뜨길 원했는데', '해결:suspense와 fallback 사용해도 같은 현상, useState로 로딩상태만들고 그 값이 true인 경우만 로딩창이 보이도록함']
     },
     ],
-    screenshot: [{ src: '/assets/screenshot/portfolio (1).png', page: '메인 페이지' },
-    { src: '/assets/screenshot/portfolio (2).png', page: '메인 페이지' },
-    { src: '/assets/screenshot/portfolio (3).png', page: '메인 페이지' },
-    { src: '/assets/screenshot/portfolio (4).png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },],
+    screenshot: [{ src: '/assets/screenshot/portfolio/portfolio (1).png', page: '메인 페이지' },
+    { src: '/assets/screenshot/portfolio/portfolio (2).png', page: '자기소개 페이지' },
+    { src: '/assets/screenshot/portfolio/portfolio (3).png', page: '프로젝트 목록 페이지' },
+    { src: '/assets/screenshot/portfolio/portfolio (5).png', page: '프로젝트 소개 페이지' },
+    { src: '/assets/screenshot/portfolio/portfolio (6).png', page: '사이드 메뉴' },
+    { src: '/assets/screenshot/portfolio/portfolio (4).png', page: 'contact 페이지' },
+    ],
     github: "https://github.com/sjpark1120/Portfolio",
     liveLink: "",
   },
@@ -129,41 +157,93 @@ const projectslist = [
     type: "solo",
     title: "WeatherWear",
     description: "실시간 날씨에 맞춰 옷차림을 추천하는 사이트입니다.",
-    descriptionDetail: `간단한 사이트소개입니다. 
-    그로우업은 어쩌고 저쩌고한 사이트입니다. IT동아리인 UMC에서 팀프로젝트로 진행한 어쩌고 저쩌고
-    프로젝트 설명입니다. 어쩌고 저쩌고
-    이런 저런 간단한 설명을 써넣어야 겠습니다.`,
-    skills: ["HTML", "CSS", "JAVASCRIPT", "NODEJS"],
+    descriptionDetail: `매일 외출하기 전 날씨를 확인할 때 기온만 보고 어떻게 옷을 입어야 할지 망설이거나 혼란스러운 상황이 자주 있습니다.
+     때문에 실시간으로 제공되는 날씨 정보와 기온에 따른 옷차림을 추천해주는 서비스가 있다면 매우 편리할 것으로 생각하여 이번 프로젝트를 기획하게 되었습니다.
+      이 프로젝트의 목적은 사용자에게 현재 날씨를 알려주고 그에 맞는 적절한 의상을 제안하는 직관적인 서비스를 제공함으로써, 매일 아침 옷차림으로 인한 추위나 더위에 대한 고민을 덜어주고자 하는 것입니다.`,
+    skills: [
+      "HTML",
+      "CSS",
+      "JAVASCRIPT",
+      "NODEJS"
+    ],
     image: "/assets/img4.png",
-    mainFunction: ["gps와 날씨api를 이용해 실시간 날씨에 맞는 옷차림을 추천하는 웹사이트"],
+    mainFunction: [
+      "웹의 GPS 권한을 이용한 사용자 위치 정보 가져오기",
+      "Google Places API를 이용한 주소 자동 완성 및 위도/경도 가져오기",
+      "Open Weather Map API를 이용한 날씨 정보 제공",
+      "온도에 따른 옷차림 추천 기능",
+      "방명록 기능"
+    ],
     period: "2024.01.01 ~ 2024.03.05",
     participants: "개인 프로젝트",
     role: "DESIGN, FRONT-END, BACK-END",
-    task: [{
-      title: '로그인, 회원가입 페이지',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 기능', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
-    }, {
-      title: '로그인, 회원가입 페이지',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 기능', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
-    },
+    task: [
+      {
+        title: "UX/UI 디자인",
+        summary: ["단순하면서도 통일된 디자인 구성",
+          "배경에는 그라데이션 효과를 사용하여 시간대별로 다른 분위기를 연출합니다.",
+          "낮 시간대에는 밝은 하늘과 태양을 배경으로 하여 화창한 날씨를 나타내고, 저녁 8시부터 새벽 4시까지는 어두운 배경에 달을 활용하여 야간 모드를 표현합니다."]
+      },
+      {
+        title: "프론트엔드 개발",
+        summary: [
+          "HTML, CSS, JavaScript를 사용하여 사이트 구조 구현",
+          "Geolocation API와 Open Weather Map API, Google Geocoding API를 활용하여 현재 위치와 날씨 데이터 가져오기"
+        ]
+      },
+      {
+        title: "백엔드 개발",
+        summary: [
+          "Node.js와 Express를 사용하여 방명록 기능 구현",
+          "방명록 작성, 삭제 기능 구현"
+        ]
+      }
     ],
-    issue: [{
-      title: '어떤 특정한 경우에 생겼던 문제',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 해결', '뭐어쩌고를 이용한 해결!']
-    }, {
-      title: '어떤 특정한 경우에 생겼던 문제2',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 기능', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
-    },
+    issue: [
+      {
+        title: "공유 버튼 사라짐 이슈",
+        summary: [
+          "문제: 광고 차단 프로그램으로 인한 버그 발견",
+          "해결: 해당 버그 수정 및 해결"
+        ]
+      },
+      {
+        title: "방명록 작성 시간 이상 기록 이슈",
+        summary: [
+          "문제: toLocaleString 메소드 옵션값 미설정으로 인한 UTC 시간 표기 문제 발견",
+          "해결: 옵션값 설정을 통해 한국 시간으로 표기되도록 수정"
+        ]
+      }
     ],
-    screenshot: [{ src: '/assets/img1.png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },
-    { src: '/assets/img1.png', page: '메인 페이지' },],
+    screenshot: [
+      {
+        src: "/assets/screenshot/weatherwear/weatherwear (1).png",
+        page: "메인 날씨 페이지(낮)"
+      },
+      {
+        src: "/assets/screenshot/weatherwear/weatherwear (2).png",
+        page: "메인 날씨 페이지(밤)"
+      },
+      {
+        src: "/assets/screenshot/weatherwear/weatherwear (3).png",
+        page: "옷차림 추천 페이지(낮)"
+      },
+      {
+        src: "/assets/screenshot/weatherwear/weatherwear (4).png",
+        page: "옷차림 추천 페이지(밤)"
+      },
+      {
+        src: "/assets/screenshot/weatherwear/weatherwear (5).png",
+        page: "공유 페이지"
+      },
+      {
+        src: "/assets/screenshot/weatherwear/weatherwear (6).png",
+        page: "방명록 페이지"
+      }
+    ],
     github: "https://github.com/sjpark1120/wp_final_project?tab=readme-ov-file",
-    liveLink: "",
-  },
+    liveLink: "https://weather-wear1120.netlify.app/"
+  }
   // 다른 프로젝트 정보들 추가
 ];
 

@@ -74,12 +74,14 @@
   font-weight: 400;
   color: #282c37;
   max-width: 404px;
+  white-space: pre-line;
 }
 .projectDescriptionNoModal {
   font-family: "Pretendard";
   font-size: 16px;
   font-weight: 400;
   color: #282c37;
+  white-space: pre-line;
 }
 .linkBtn {
   font-family: "Pretendard";
@@ -247,6 +249,7 @@
   }
   .screenShotImg {
     width: 100%;
+    height: auto;
   }
   .sectionInfo {
     display: none;
