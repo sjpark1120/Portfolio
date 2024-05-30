@@ -1,8 +1,11 @@
-"use client";
-import { useEffect, useState } from "react";
-import Header from "../components/header";
 import "../styles/global.css";
-import Loading from "./loadingWindow";
+import Load from "../components/load";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SUJIN'S PORTFOLIO ",
+  description: "박수진의 포트폴리오입니다.",
+};
 
 export default function RootLayout({
   children,
@@ -11,19 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
   modal: React.ReactNode;
 }) {
-  const [isloading, setisLoading] = useState(true);
-
-  useEffect(() => {
-    setisLoading(false);
-  }, []);
   return (
-    <html lang="en">
-      <body>
-        <Loading isloading={isloading} />
-        <Header />
+    <>
+      <Load>
         {children}
         {modal}
-      </body>
-    </html>
+      </Load>
+    </>
   );
 }

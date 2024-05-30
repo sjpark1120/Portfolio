@@ -6,8 +6,9 @@ export default function Main() {
         <span className={styles.topText}>PROTPOLIO</span>
         <div className={styles.titleText}>FRONT-END</div>
         <div className={styles.introText}>
-          어쩌고 저쩌고한 개발자 박수진입니다.
-          <br /> 뭐 어쩌고를 추구하며 이러퉁저러쿵을 해서 만듭니다.
+          사용자 경험을 위해 끊임없이 고민하고 노력합니다.
+          <br />
+          웹의 무한한 가능성을 탐구하는 프론트엔드 개발자 박수진입니다.
         </div>
       </div>
       <div>

@@ -100,7 +100,7 @@ export default function Header() {
           </a>
         </div>
         <div className={styles.copyright}>
-          © 2024 SUJIN’S PORTPOLIO ALL RIGHTS RESERVED.
+          © 2024 SUJIN’S PORTFOLIO ALL RIGHTS RESERVED.
         </div>
       </div>
       <div className={styles.header}>

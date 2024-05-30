@@ -16,7 +16,7 @@ const projectslist = [
       "JWT 토큰 기반의 로그인, 회원가입 및 인증 기능",
       "커뮤니티 게시판 기능",
       "개인 일정 관리 및 작업 시간 관리 기능"],
-    period: "2024.01.01 ~ 2024.03.05",
+    period: "2024.01.03 ~ 2024.02.21",
     participants: "프론트3, 백3, PM1, 다자인1",
     role: "FRONT-END",
     task: [
@@ -70,7 +70,7 @@ const projectslist = [
       "사진 업로드 기능",
       "게시글 무한 스크롤 기능",
       "포트원(구 아임포트) 결제 모듈 연동"],
-    period: "2024.01.01 ~ 2024.03.05",
+    period: "2024.03.08 ~ 2024.03.21",
     participants: "개인 프로젝트",
     role: "FRONT-END",
     task: [
@@ -104,42 +104,49 @@ const projectslist = [
   {
     id: 3,
     type: "solo",
-    title: "PORTPOLIO SITE",
+    title: "PORTFOLIO SITE",
     description: "현재 보고있는 포트폴리오 사이트입니다.",
-    descriptionDetail: `간단한 사이트소개입니다. 
-    지금 보고있는 포트폴리오 사이트입니다. nextjs14를 이용해 app router로 구현했습니다.
-    제 자기소개와 지금까지 진행한 포트폴리오를 소개하고있습니다.
-    디자인, 프론트엔드 모두 직접했습니다.`,
+    descriptionDetail: `이 사이트는 Next.js 14의 App Router 기능을 활용하여 제작한 개인 포트폴리오 웹사이트입니다. 
+    자기소개와 프로젝트 포트폴리오를 소개하고 있으며, 디자인과 프론트엔드 개발을 모두 직접 담당했습니다.
+    반응형 웹 디자인을 적용하여 모바일에서도 최적화된 경험을 제공합니다.`,
     skills: ["NEXTJS", "TYPESCRIPT", "CSS-MODULE"],
     image: "/assets/img3.png",
-    mainFunction: ["자기소개",
-      "포트폴리오 소개",
-      "이메일 보내기 기능",
-      "fullpage기능"
+    mainFunction: ["자기소개 및 프로젝트 포트폴리오 소개",
+      "이메일 문의 기능",
+      "Full Page Scroll 기능"
     ],
-    period: "2024.01.01 ~ 2024.03.05",
+    period: "2024.04.15 ~ 2024.05.31",
     participants: "개인 프로젝트",
     role: "DESIGN, FRONT-END",
     task: [{
-      title: '디자인',
-      summary: ['figma를 통해 전체적인 사이트 디자인', '모바일 반응형 디자인 구현']
+      title: '웹 디자인',
+      summary: ['Figma를 활용한 전체 사이트 디자인', '모바일 반응형 디자인 적용']
     }, {
-      title: 'fullpage 기능 구현',
-      summary: ['ㅎㅎ', '뭐어쩌고를 이용한 뭐 어쩌고 기능이이이이이']
+      title: 'Full Page Scroll 기능 구현',
+      summary: ['useRef, WheelEvent, currentSectionIndex 활용하여 직접 구현']
     }, {
       title: '이메일 전송 기능 구현',
-      summary: ['Email.js를 이용해 CONTACT페이지의 이메일 전송기능을 구현']
+      summary: ['Email.js API를 활용하여 Contact 페이지에서 이메일 전송 기능 구현']
     }, {
       title: '모달 라우팅 구현',
-      summary: ['nextjs14의  Intercepting Routes랑 Parallel Routes 를 이용해서 구현', '사용자 경험도 상승하고 모달마다 주소 다르게 줄 수 있음. 이러면 모달창을 앱 내에서 탐색할 때는 모달로, 페이지 새로고침하면 독립형 페이지로 렌더링 가능함.']
+      summary: ['Next.js 14의 Intercepting Routes와 Parallel Routes 기능 활용',
+        '모달 창 내에서 탐색 시 모달로 렌더링, 새로고침 시 독립 페이지로 렌더링하여 사용자 경험 향상']
     },
     ],
     issue: [{
-      title: 'fullpage 기능 구현이슈',
-      summary: ['뭐어쩌고를 이용한 뭐 어쩌고 해결', '뭐어쩌고를 이용한 해결!']
-    }, {
-      title: '로딩 이슈',
-      summary: ['문제: nextjs의 특수파일인  loading.tsx으로 구현하니까 모든 로딩상황(이미지, 아이콘 로딩등등)에서 게속 로딩 창이 떳음. 난 초기 실행 한번만 로딩창이 뜨길 원했는데', '해결:suspense와 fallback 사용해도 같은 현상, useState로 로딩상태만들고 그 값이 true인 경우만 로딩창이 보이도록함']
+      title: 'Full Page Scroll 기능 구현 이슈',
+      summary: ['문제: react-fullpage 라이브러리 사용 시 모달 창 스크롤과 충돌하는 이슈 발생',
+        '해결:useRef, WheelEvent, currentSectionIndex를 활용하여 직접 구현']
+    },
+    {
+      title: '스크롤 이벤트 과다 발생 이슈',
+      summary: ['문제: Full Page Scroll기능의 스크롤 이벤트가 과도하게 발생하여 성능 저하 초래.',
+        '해결: Lodash 라이브러리의 throttle 기능을 적용하여 0.3초마다 이벤트 발생하도록 최적화.']
+    },
+    {
+      title: '로딩 화면 이슈',
+      summary: ['문제: Next.js의 loading.tsx 파일을 사용하면 모든 로딩 상황에서 로딩 화면이 표시됨',
+        '해결:useState를 활용하여 초기 실행 시에만 로딩 화면이 표시되도록 구현']
     },
     ],
     screenshot: [{ src: '/assets/screenshot/portfolio/portfolio (1).png', page: '메인 페이지' },
@@ -150,7 +157,7 @@ const projectslist = [
     { src: '/assets/screenshot/portfolio/portfolio (4).png', page: 'contact 페이지' },
     ],
     github: "https://github.com/sjpark1120/Portfolio",
-    liveLink: "",
+    liveLink: "https://portfolio-sujin.vercel.app/",
   },
   {
     id: 4,
@@ -174,7 +181,7 @@ const projectslist = [
       "온도에 따른 옷차림 추천 기능",
       "방명록 기능"
     ],
-    period: "2024.01.01 ~ 2024.03.05",
+    period: "2023.06.10 ~ 2024.6.21",
     participants: "개인 프로젝트",
     role: "DESIGN, FRONT-END, BACK-END",
     task: [
