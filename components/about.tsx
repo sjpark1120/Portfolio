@@ -89,11 +89,11 @@ export default function About() {
                   <span className={styles.linkText}>sjpark1120 깃허브</span>
                 </Link>
                 <Link
-                  href="https://github.com/sjpark1120"
+                  href="https://icy-poppy-873.notion.site/8dd4eff08f894f1eab44c2386a017c07"
                   target="_blank"
                   className={styles.link}
                 >
-                  <img src="/assets/in.png" width={24} />
+                  <img src="/assets/notion.png" width={24} />
                   <span className={styles.linkText}>이력서</span>
                 </Link>
               </div>

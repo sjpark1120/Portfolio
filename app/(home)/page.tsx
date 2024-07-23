@@ -5,8 +5,9 @@ import styles from "../../styles/home.module.css";
 import About from "../../components/about";
 import Projects from "../../components/projects";
 import Contact from "../../components/contact";
-import { throttle } from "lodash";
 import { usePathname } from "next/navigation";
+import { debounce } from "lodash";
+
 const Home = () => {
   const sectionRefs = [
     useRef<HTMLDivElement>(null),
@@ -17,51 +18,84 @@ const Home = () => {
 
   const sectionNames = ["main", "about", "projects", "contact"];
   const pathname = usePathname();
+  const [currentSection, setCurrentSection] = useState(0);
+  const [scrollCount, setScrollCount] = useState(0);
+
   const changeUrlHash = useCallback((hash: string) => {
     window.history.pushState({}, "", `#${hash}`);
     window.dispatchEvent(new HashChangeEvent("hashchange"));
   }, []);
 
-  const handleScroll = (e: WheelEvent) => {
-    if (pathname.startsWith("/detail")) {
-      return;
-    }
-    e.preventDefault();
-    console.log("scroll");
-    const { deltaY } = e;
-    const currentSectionIndex = sectionRefs.findIndex((ref) => {
+  useEffect(() => {
+    if (pathname.startsWith("/detail")) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = sectionRefs.findIndex(
+              (ref) => ref.current === entry.target
+            );
+            if (index !== -1) {
+              setCurrentSection(index);
+              changeUrlHash(sectionNames[index]);
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sectionRefs.forEach((ref) => {
       if (ref.current) {
-        const { top, bottom } = ref.current.getBoundingClientRect();
-        return top <= 0 && bottom > 0;
+        observer.observe(ref.current);
       }
-      return false;
     });
 
-    if (deltaY > 0 && currentSectionIndex < sectionRefs.length - 1) {
-      const nextSection = sectionRefs[currentSectionIndex + 1];
-      if (nextSection.current) {
-        nextSection.current.scrollIntoView({
+    return () => {
+      sectionRefs.forEach((ref) => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      });
+    };
+  }, [pathname, changeUrlHash, sectionNames]);
+
+  const handleWheel = useCallback(
+    (e: WheelEvent) => {
+      if (pathname.startsWith("/detail")) return;
+
+      e.preventDefault();
+      console.log("Scroll");
+
+      const { deltaY } = e;
+      let nextSection = currentSection;
+
+      if (deltaY > 0 && currentSection < sectionRefs.length - 1) {
+        nextSection = currentSection + 1;
+      } else if (deltaY < 0 && currentSection > 0) {
+        nextSection = currentSection - 1;
+      }
+
+      if (nextSection !== currentSection) {
+        sectionRefs[nextSection].current?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-        changeUrlHash(sectionNames[currentSectionIndex + 1]);
       }
-    } else if (deltaY < 0 && currentSectionIndex > 0) {
-      const prevSection = sectionRefs[currentSectionIndex - 1];
-      if (prevSection.current) {
-        prevSection.current.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-        changeUrlHash(sectionNames[currentSectionIndex - 1]);
-      }
-    }
-  }; // 1000ms = 1초 간격으로 이벤트 실행
+    },
+    [currentSection, pathname, scrollCount]
+  );
+
+  const debouncedHandleWheel = useCallback(
+    debounce(handleWheel, 100, { leading: true, trailing: false }),
+    [handleWheel]
+  );
 
   useEffect(() => {
-    window.addEventListener("wheel", handleScroll, { passive: false });
-    return () => window.removeEventListener("wheel", handleScroll);
-  }, [handleScroll]);
+    window.addEventListener("wheel", debouncedHandleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", debouncedHandleWheel);
+  }, [debouncedHandleWheel]);
 
   return (
     <div>

@@ -119,16 +119,16 @@ export default function Contact() {
             </div>
           </div>
           <div className={styles.infoFlex}>
-            <img src="/assets/in_b.png" />
+            <img src="/assets/notion.png" />
             <div>
-              <div className={styles.contactLabel}>IN</div>
+              <div className={styles.contactLabel}>RESUME</div>
               <div className={styles.contactValue}>
                 <Link
-                  href="https://github.com/sjpark1120"
+                  href="https://icy-poppy-873.notion.site/8dd4eff08f894f1eab44c2386a017c07"
                   target="_blank"
                   className={styles.colorLink}
                 >
-                  https://github.com/sjpark1120
+                  https://icy-poppy-873.notion.site/8dd4eff08f894f1eab44c2386a017c07
                 </Link>
               </div>
             </div>

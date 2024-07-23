@@ -141,7 +141,7 @@ const projectslist = [
     {
       title: '스크롤 이벤트 과다 발생 이슈',
       summary: ['문제: Full Page Scroll기능의 스크롤 이벤트가 과도하게 발생하여 성능 저하 초래.',
-        '해결: Lodash 라이브러리의 throttle 기능을 적용하여 0.3초마다 이벤트 발생하도록 최적화.']
+        '해결: Lodash 라이브러리의 debounce 기능을 적용하여 0.1초마다 이벤트 발생하도록 최적화.']
     },
     {
       title: '로딩 화면 이슈',
