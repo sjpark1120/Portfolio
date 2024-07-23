@@ -119,7 +119,7 @@ export default function Contact() {
             </div>
           </div>
           <div className={styles.infoFlex}>
-            <img src="/assets/notion.png" />
+            <img src="/assets/notion.png" width={20} />
             <div>
               <div className={styles.contactLabel}>RESUME</div>
               <div className={styles.contactValue}>
@@ -128,7 +128,7 @@ export default function Contact() {
                   target="_blank"
                   className={styles.colorLink}
                 >
-                  https://icy-poppy-873.notion.site/8dd4eff08f894f1eab44c2386a017c07
+                  Notion Resume Link
                 </Link>
               </div>
             </div>
