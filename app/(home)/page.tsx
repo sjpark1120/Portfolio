@@ -1,8 +1,7 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Main from "../../components/main";
-import styles from "../../styles/home.module.css";
-import About from "../../components/about";
+import About from "../../components/About";
 import Projects from "../../components/projects";
 import Contact from "../../components/contact";
 import { usePathname } from "next/navigation";
