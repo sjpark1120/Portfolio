@@ -81,7 +81,7 @@ export default function About() {
                   <span className={styles.linkText}>asgol9609@gmail.com</span>
                 </div>
                 <Link
-                  href="https://usagi-coding.tistory.com/"
+                  href="https://github.com/sjpark1120"
                   target="_blank"
                   className={styles.link}
                 >
