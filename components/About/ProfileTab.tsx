@@ -40,7 +40,12 @@ const ProfileTab = () => {
       </div>
       <div className={styles.linkContainer}>
         {LINKS.map((link) => (
-          <Link href={link.href} target="_blank" className={styles.link}>
+          <Link
+            key={link.name}
+            href={link.href}
+            target="_blank"
+            className={styles.link}
+          >
             <img src={link.image} width={24} />
             <span className={styles.linkText}>{link.name}</span>
           </Link>

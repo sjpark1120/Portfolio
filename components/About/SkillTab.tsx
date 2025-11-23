@@ -74,7 +74,7 @@ const SkillTab = () => {
         <h1 className={styles.skillH1}>SKILL</h1>
         <div className={styles.skillFlex}>
           {SKILLS.map((skill) => (
-            <div className={styles.skillbox}>
+            <div key={skill.name} className={styles.skillbox}>
               <img src={skill.image} width={24} />
               <span className={styles.skillname}>{skill.name}</span>
             </div>

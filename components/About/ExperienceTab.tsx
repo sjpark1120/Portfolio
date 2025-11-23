@@ -27,7 +27,7 @@ const ExperienceTab = () => {
     <div className={styles.expListContainer}>
       {EXPERIENCES.map((experience) => {
         return (
-          <div className={styles.expList}>
+          <div key={experience.name} className={styles.expList}>
             <div className={styles.expTime}>{experience.time}</div>
             <div>
               <div className={styles.expName}>{experience.name}</div>
