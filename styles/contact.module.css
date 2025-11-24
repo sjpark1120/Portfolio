@@ -154,6 +154,13 @@
   color: #4d4d4d;
   margin-left: 10px;
 }
+.errorText {
+  font-size: 16px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  color: #d11313;
+  margin-left: 10px;
+}
 @media screen and (max-width: 767px) {
   /* 모바일 */
   .container {
@@ -216,6 +223,9 @@
     line-height: 12px;
   }
   .checkText {
+    margin-left: 0;
+  }
+  .errorText {
     margin-left: 0;
   }
 }

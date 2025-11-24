@@ -1,11 +1,11 @@
-"use client";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import Main from "../../components/main";
-import About from "../../components/About";
-import Projects from "../../components/projects";
-import Contact from "../../components/contact";
-import { usePathname } from "next/navigation";
-import { debounce } from "lodash";
+"use client"
+import React, { useCallback, useEffect, useRef, useState } from "react"
+import Main from "../../components/main"
+import About from "../../components/About"
+import Projects from "../../components/projects"
+import Contact from "../../components/Contact"
+import { usePathname } from "next/navigation"
+import { debounce } from "lodash"
 
 const Home = () => {
   const sectionRefs = [
